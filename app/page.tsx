@@ -1,4 +1,8 @@
-import { BoltIcon, ExclamationTriangleIcon, SunIcon } from "@heroicons/react/24/outline";
+import {
+  BoltIcon,
+  ExclamationTriangleIcon,
+  SunIcon,
+} from "@heroicons/react/24/outline";
 import { ReactElement } from "react";
 
 function HomePage(): ReactElement {
@@ -33,7 +37,11 @@ function HomePage(): ReactElement {
   );
 }
 
-function CardComponent(heading: string, icon : ReactElement, ...msgs: string[]): ReactElement {
+function CardComponent(
+  heading: string,
+  icon: ReactElement,
+  ...msgs: string[]
+): ReactElement {
   return (
     <div>
       <div className="flex flex-col justify-center items-center mb-5">
@@ -41,8 +49,12 @@ function CardComponent(heading: string, icon : ReactElement, ...msgs: string[]):
         <h2 className="font-semibold">{heading}</h2>
       </div>
       <div className="space-y-2">
-        {msgs.map((msg) => {
-          return <p className="infoText">"{msg}"</p>;
+        {msgs.map((msg: string, index: number) => {
+          return (
+            <p className="infoText" key={index}>
+              "{msg}"
+            </p>
+          );
         })}
       </div>
     </div>
