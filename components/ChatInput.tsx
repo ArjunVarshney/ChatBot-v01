@@ -7,6 +7,7 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { db } from "../firebase";
 import useSWR from "swr";
+import ModelSelection from "./ModelSelection";
 
 type Props = {
   id: string;
@@ -66,27 +67,32 @@ const ChatInput = ({ id }: Props) => {
   };
 
   return (
-    <div className="my-4">
-      <form
-        onSubmit={sendMessage}
-        className="flex mx-auto w-[95%] justify-center bg-gray-700/50 pr-4 text-[#b4b4b4] rounded"
-      >
-        <input
-          type="text"
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          className="w-[100%] mx-3 p-4 bg-transparent focus:outline-none"
-          placeholder="Type your message here...."
-        />
-        <button
-          type="submit"
-          disabled={!prompt}
-          className="disabled:opacity-50"
+    <>
+      <div className="my-4">
+        <form
+          onSubmit={sendMessage}
+          className="flex mx-auto w-[95%] justify-center bg-gray-700/50 pr-4 text-[#b4b4b4] rounded"
         >
-          <PaperAirplaneIcon className="h-5 w-5 -rotate-45" />
-        </button>
-      </form>
-    </div>
+          <input
+            type="text"
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            className="w-[100%] mx-3 p-4 bg-transparent focus:outline-none"
+            placeholder="Type your message here...."
+          />
+          <button
+            type="submit"
+            disabled={!prompt}
+            className="disabled:opacity-50"
+          >
+            <PaperAirplaneIcon className="h-5 w-5 -rotate-45" />
+          </button>
+        </form>
+        <div className="w-[95%] mx-auto sm:hidden">
+          <ModelSelection />
+        </div>
+      </div>
+    </>
   );
 };
 

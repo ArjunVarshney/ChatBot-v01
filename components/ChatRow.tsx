@@ -37,11 +37,11 @@ const ChatRow = ({ id }: Props): ReactElement => {
   return (
     <Link
       href={`/chat/${id}`}
-      className={`flex px-4 py-2 my-2 rounded justify-center max-w-[200px] text-white items-center hover:bg-gray-500/10 ${
+      className={`flex sm:px-4 py-2 my-2 rounded justify-center max-w-[200px] text-white items-center hover:bg-gray-500/10 ${
         active ? "bg-gray-500/10" : ""
       }`}
     >
-      <ChatBubbleLeftIcon className="h-5 w-5 mr-2" />
+      <ChatBubbleLeftIcon className="h-5 w-5 mr-2 hidden sm:block" />
       <p className="flex-1 hidden sm:inline-flex truncate mr-5">
         {messages?.docs[messages?.docs.length - 1]?.data().text || "New Chat"}
       </p>

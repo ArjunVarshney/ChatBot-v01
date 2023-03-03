@@ -29,10 +29,10 @@ const SideBar = (): ReactElement => {
 
   return (
     <div className="bg-[#202123] sm:min-w-[200px] sm:block h-screen">
-      <div className="overflow-y-auto p-3 h-[90%]">
+      <div className="overflow-y-auto sm:p-3 h-[90%]">
         <NewChatButton />
 
-        <div className="inline">
+        <div className="hidden sm:inline">
           <ModelSelection/>
         </div>
 
@@ -46,7 +46,7 @@ const SideBar = (): ReactElement => {
         <div>
           <img
             onClick={() => signOut()}
-            className="mx-auto w-10 h-10 rounded-full hover:opacity-50 my-3"
+            className="mx-auto p-1 sm:p-0 w-10 h-10 rounded-full hover:opacity-50 my-3"
             src={session.user?.image!}
             alt="Profile Pic"
           />
@@ -73,10 +73,10 @@ const NewChatButton = (): ReactElement => {
     <>
       <div
         onClick={() => createNewChat()}
-        className="flex rounded space-x-1 justify-center cursor-pointer items-center transition-all py-2 px-4 hover:bg-gray-400/10 text-white"
+        className="flex rounded space-x-1 justify-center cursor-pointer items-center transition-all py-2 sm:px-4 hover:bg-gray-400/10 text-white"
       >
-        <PlusIcon className="w-4 h-4" />
-        <div>New Chat</div>
+        <PlusIcon className="w-6 h-6 sm:w-4 sm:h-4" />
+        <div className="hidden sm:block">New Chat</div>
       </div>
     </>
   );
