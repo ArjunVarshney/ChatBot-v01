@@ -10,7 +10,7 @@ function HomePage(): ReactElement {
     <div className=" h-screen text-white flex flex-col justify-center items-center px-2">
       <h1 className="text-5xl font-bold mb-20">ChatBot-v01</h1>
 
-      <div className="flex space-x-2 text-center">
+      <div className="flex flex-col m-5 sm:m-0 sm:flex-row overflow-auto space-x-2 text-center">
         {CardComponent(
           "Examples",
           <SunIcon className="h-8 w-8" />,
