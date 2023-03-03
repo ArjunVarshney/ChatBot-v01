@@ -14,6 +14,7 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { ReactElement } from "react";
 import { db } from "../firebase";
 import ChatRow from "./ChatRow";
+import ModelSelection from "./ModelSelection";
 
 const SideBar = (): ReactElement => {
   const { data: session } = useSession();
@@ -27,9 +28,14 @@ const SideBar = (): ReactElement => {
   );
 
   return (
-    <div className="bg-[#202123] sm:min-w-[200px] h-screen">
-      <div className="overflow-y-auto h-[90%]">
+    <div className="bg-[#202123] sm:min-w-[200px] sm:block h-screen">
+      <div className="overflow-y-auto p-3 h-[90%]">
         <NewChatButton />
+
+        <div className="inline">
+          <ModelSelection/>
+        </div>
+
         <div>
           {chats?.docs.map((chat) => {
             return <ChatRow key={chat.id} id={chat.id} />;
@@ -67,7 +73,7 @@ const NewChatButton = (): ReactElement => {
     <>
       <div
         onClick={() => createNewChat()}
-        className="flex space-x-1 justify-center cursor-pointer items-center transition-all py-2 px-4 border-b-[1px] border-[#5c5c5c] hover:bg-gray-400/10 text-white"
+        className="flex rounded space-x-1 justify-center cursor-pointer items-center transition-all py-2 px-4 hover:bg-gray-400/10 text-white"
       >
         <PlusIcon className="w-4 h-4" />
         <div>New Chat</div>

@@ -17,7 +17,6 @@ const query = async (prompt: string, chatId: string, model: string) => {
     .catch((err) => {
       return `I was not able to find an appropriate answer for this and ended up with an error: ${err.message}`;
     });
-  console.log(res);
 
   return res;
 };

@@ -6,16 +6,19 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { db } from "../firebase";
+import useSWR from "swr";
 
 type Props = {
   id: string;
 };
 
-const model = "text-davinci-003";
-
 const ChatInput = ({ id }: Props) => {
   const [prompt, setPrompt] = useState("");
   const { data: session } = useSession();
+
+  const { data: model } = useSWR("model", {
+    fallbackData: "text-davinci-003",
+  });
 
   const sendMessage = async (e: React.SyntheticEvent) => {
     e.preventDefault();

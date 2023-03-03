@@ -37,7 +37,7 @@ const ChatRow = ({ id }: Props): ReactElement => {
   return (
     <Link
       href={`/chat/${id}`}
-      className={`flex px-4 py-2 justify-center max-w-[200px] text-white items-center hover:bg-gray-500/10 ${
+      className={`flex px-4 py-2 my-2 rounded justify-center max-w-[200px] text-white items-center hover:bg-gray-500/10 ${
         active ? "bg-gray-500/10" : ""
       }`}
     >
